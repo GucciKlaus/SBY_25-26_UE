@@ -1,0 +1,43 @@
+# --------------------
+# Python
+# --------------------
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# --------------------
+# C / C++ (gcc builds)
+# --------------------
+# Object files
+*.o
+*.obj
+
+# Compiled binaries (no extension)
+a.out
+*.out
+
+# Common binary names
+*.exe
+*.bin
+*.app
+
+# Static / shared libs
+*.a
+*.so
+*.so.*
+*.dylib
+
+# --------------------
+# Build directories
+# --------------------
+build/
+dist/
+cmake-build-*/
+
+# --------------------
+# Debug / temp
+# --------------------
+*.log
+*.tmp
