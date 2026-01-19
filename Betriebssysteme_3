@@ -1,0 +1,145 @@
+🎥 Betriebssystemgrundlagen – Teil 3 (neu, technisch geschärft)
+1️⃣ Rolle von Teil 3 im Gesamtstoff
+
+Teil 3 beantwortet die nächste logische Frage nach Teil 2:
+
+Wenn das Betriebssystem Prozesse verwaltet und CPU-Zeit verteilt –
+was genau wird eigentlich eingeplant und ausgeführt?
+
+Antwort:
+➡️ Nicht der Prozess selbst, sondern feinere Ausführungseinheiten.
+
+2️⃣ Prozess vs. Ausführung (zentrale Klarstellung)
+
+Ein Prozess ist primär:
+
+ein Container für Ressourcen
+
+virtueller Adressraum
+
+offene Dateien
+
+Rechte
+
+Ein Prozess rechnet nicht von selbst.
+
+👉 Die eigentliche Ausführung passiert durch Threads.
+
+3️⃣ Thread-Begriff (technisch exakt)
+
+Ein Thread ist:
+
+eine sequentielle Ausführung von Instruktionen innerhalb eines Prozesses
+
+Ein Thread besitzt:
+
+eigenen Program Counter
+
+eigenen Registersatz
+
+eigenen Stack
+
+Threads eines Prozesses:
+
+teilen sich den Adressraum
+
+teilen sich Ressourcen
+
+➡️ Thread = kleinste vom OS geplante Recheneinheit
+
+4️⃣ Warum Threads notwendig sind (keine Komfortfrage!)
+
+Ohne Threads müsste:
+
+jeder parallele Ablauf ein eigener Prozess sein
+
+jeder Kontextwechsel:
+
+Adressraum wechseln
+
+Speicher neu abbilden
+
+Das ist:
+
+teuer
+
+langsam
+
+ineffizient
+
+👉 Threads erlauben Parallelität mit geringem Verwaltungsaufwand.
+
+5️⃣ Scheduling-Ebene (sehr prüfungsrelevant)
+
+Wichtige, oft falsch verstandene Aussage:
+
+❌ Das Betriebssystem plant keine Prozesse
+
+✅ Das Betriebssystem plant Threads
+
+Der Scheduler:
+
+wählt einen Thread
+
+weist ihm CPU-Zeit zu
+
+unterbricht ihn ggf. per Timer-Interrupt
+
+➡️ Multitasking entsteht auf Thread-Ebene.
+
+6️⃣ Zusammenhang mit Mehrkern-CPUs
+
+Bei mehreren CPU-Kernen gilt:
+
+mehrere Threads können wirklich parallel laufen
+
+Threads desselben Prozesses können:
+
+gleichzeitig auf verschiedenen Kernen laufen
+
+Das OS:
+
+verteilt Threads auf Kerne
+
+balanciert Last
+
+vermeidet Leerlauf
+
+7️⃣ Konsequenz: gemeinsamer Speicher → neue Probleme
+
+Da Threads:
+
+denselben Speicher verwenden
+
+entstehen klassische Nebenwirkungen:
+
+Race Conditions
+
+inkonsistente Zustände
+
+schwer reproduzierbare Fehler
+
+👉 Parallelität erzeugt Koordinationsbedarf.
+
+8️⃣ Aufgabe des Betriebssystems (Teil-3-Kernaussage)
+
+Das Betriebssystem muss:
+
+Thread-Erzeugung verwalten
+
+Thread-Zustände speichern
+
+Kontextwechsel auf Thread-Ebene durchführen
+
+Mechanismen für Synchronisation bereitstellen
+
+➡️ Teil 3 erklärt, warum Synchronisation überhaupt nötig wird.
+
+9️⃣ Gesamtzusammenhang (Teil 1–3 logisch verbunden)
+Hardware (CPU, RAM)
+   ↑
+Betriebssystem (Kernel)
+   ↑
+Prozesse (Ressourcen)
+   ↑
+Threads (Ausführung)

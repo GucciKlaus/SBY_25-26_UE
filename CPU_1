@@ -1,0 +1,121 @@
+🎥 CPU-Scheduling – Teil 1
+
+(technisch präzise, zusammenhängend, verständnisorientiert)
+
+1️⃣ Einordnung des Videos
+
+Nach:
+
+Prozessen (was wird verwaltet?)
+
+Threads & Nebenläufigkeit (was wird ausgeführt?)
+
+kommt jetzt die zentrale Steuerungsfrage:
+
+Wie entscheidet das Betriebssystem, welcher Thread wann die CPU bekommt?
+
+CPU-Scheduling ist damit kein Randthema, sondern der Kern der Betriebssystemkontrolle.
+
+2️⃣ Grundproblem: CPU als knappe Ressource
+
+Die CPU ist:
+
+sehr schnell
+
+aber begrenzt (pro Kern nur ein Thread gleichzeitig)
+
+Gleichzeitig existieren:
+
+viele Threads
+
+viele konkurrierende Anforderungen
+
+➡️ Nicht alle können gleichzeitig laufen.
+
+Das Betriebssystem muss daher:
+
+auswählen
+
+priorisieren
+
+wechseln
+
+3️⃣ Rolle des Schedulers (formal)
+
+Der Scheduler ist eine OS-Komponente, die:
+
+entscheidet, welcher Thread als Nächstes auf der CPU ausgeführt wird.
+
+Wichtig:
+
+Scheduler führt selbst keinen Code aus
+
+er trifft Entscheidungen
+
+die Umsetzung erfolgt über Kontextwechsel
+
+➡️ Der Scheduler steuert die CPU indirekt.
+
+4️⃣ Scheduling-Ebene (wichtige Klarstellung)
+
+Technisch korrekt:
+
+Geplant werden Threads, nicht Prozesse
+
+Prozesse sind Ressourcenkontexte
+
+Threads sind Ausführungseinheiten
+
+➡️ CPU-Scheduling = Thread-Scheduling
+
+(Das knüpft direkt an das Threads-Kapitel an.)
+
+5️⃣ Wann wird geschedult?
+
+Das Video macht klar: Scheduling passiert nicht zufällig, sondern zu definierten Zeitpunkten, z. B.:
+
+aktueller Thread blockiert (I/O)
+
+Zeitquantum läuft ab
+
+Thread beendet sich
+
+Interrupt tritt auf
+
+➡️ Scheduling ist ereignisgetrieben.
+
+6️⃣ Zielkonflikte beim Scheduling
+
+Ein zentrales Verständnisziel des Videos:
+
+Es gibt kein perfektes Scheduling, nur Abwägungen.
+
+Typische Ziele:
+
+hohe CPU-Auslastung
+
+kurze Reaktionszeit
+
+Fairness zwischen Threads
+
+geringer Overhead
+
+➡️ Diese Ziele stehen teilweise im Widerspruch.
+
+7️⃣ Zusammenhang mit Multitasking & Interrupts
+
+CPU-Scheduling funktioniert nur, weil:
+
+Interrupts Threads unterbrechen können
+
+das OS jederzeit Kontrolle übernehmen kann
+
+Kontextwechsel möglich sind
+
+➡️ Scheduling ist keine reine Softwarelogik, sondern baut auf:
+
+Hardware-Interrupts
+
+Timer
+
+Privilegierungsstufen
