@@ -1,0 +1,137 @@
+Betriebssystemgrundlagen – Teil 1 (technisch präzisiert)
+1️⃣ Grunddefinition (technisch korrekt)
+
+Ein Betriebssystem ist eine Systemsoftware, die
+
+die Hardware abstrahiert
+
+Systemressourcen verwaltet (CPU, Speicher, I/O)
+
+und kontrollierte Schnittstellen für Anwendungsprogramme bereitstellt
+
+Ziel ist:
+
+Effizienz
+
+Stabilität
+
+Sicherheit
+
+2️⃣ Rolle des Betriebssystems im System
+
+Die CPU:
+
+führt Maschinenbefehle aus
+
+kennt keine Prozesse, Dateien oder Benutzer
+
+Programme:
+
+dürfen keinen direkten Hardwarezugriff haben
+
+➡️ Das Betriebssystem fungiert als Vermittlungs- und Kontrollinstanz, die:
+
+Zugriffe koordiniert
+
+konkurrierende Anforderungen auflöst
+
+Hardwarezugriffe serialisiert
+
+3️⃣ Prozessbegriff (präzise!)
+
+Ein Prozess ist:
+
+ein Programm in Ausführung inklusive:
+
+aktuellem Registerzustand
+
+eigenem Adressraum
+
+zugewiesenen Ressourcen
+
+Das Betriebssystem:
+
+erzeugt Prozesse
+
+verwaltet ihren Zustand
+
+führt Kontextwechsel durch
+
+Multitasking entsteht durch:
+
+zeitliche Aufteilung der CPU
+
+schnelles Umschalten zwischen Prozessen
+
+4️⃣ Speicherverwaltung (technisch formuliert)
+
+Das Betriebssystem:
+
+verwaltet den physikalischen Hauptspeicher
+
+weist Prozessen virtuelle Adressräume zu
+
+verhindert unautorisierten Zugriff auf fremden Speicher
+
+Ziele:
+
+Isolation von Prozessen
+
+effiziente Speichernutzung
+
+Schutz vor Speicherfehlern
+
+5️⃣ Privilegierungsstufen: User Mode vs. Kernel Mode
+
+Moderne CPUs unterstützen Betriebsmodi mit unterschiedlichen Rechten.
+
+User Mode
+
+eingeschränkter Befehlssatz
+
+kein direkter Zugriff auf Hardware oder kritische CPU-Instruktionen
+
+Kernel Mode
+
+voller Zugriff auf:
+
+Speicherverwaltung
+
+I/O
+
+Prozesssteuerung
+
+➡️ Diese Trennung ist ein zentraler Sicherheitsmechanismus.
+
+6️⃣ System Calls (präzise Definition)
+
+System Calls sind:
+
+kontrollierte Übergänge vom User Mode in den Kernel Mode,
+um Betriebssystemdienste anzufordern.
+
+Beispiele:
+
+Speicher anfordern
+
+Dateioperationen
+
+Prozessverwaltung
+
+Das Betriebssystem:
+
+validiert jeden Aufruf
+
+führt ihn im Kernel Mode aus
+
+7️⃣ Gesamtzusammenhang (technisches Modell)
+Anwendungsprogramme (User Mode)
+        ↓ System Calls
+Betriebssystemkern (Kernel Mode)
+        ↓
+CPU / RAM / I/O-Geräte
+
+
+➡️ Alle Hardwarezugriffe laufen indirekt über das Betriebssystem.
+
+

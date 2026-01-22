@@ -1,0 +1,141 @@
+🎥 Betriebssystemgrundlagen – Teil 2
+
+(technisch formuliert, mit Fokus auf Zusammenhänge)
+
+1️⃣ Einordnung von Teil 2 (was dieses Video ergänzt)
+
+Während Teil 1 klärt, warum es ein Betriebssystem braucht,
+konzentriert sich Teil 2 darauf, wie das Betriebssystem intern arbeitet:
+
+Verwaltung mehrerer Prozesse
+
+Zustand eines Prozesses
+
+Wechsel zwischen Prozessen
+
+grundlegende Scheduling-Idee
+
+➡️ Schwerpunkt: CPU-Zeit als knappe Ressource
+
+2️⃣ Prozesszustände (technisch korrekt)
+
+Ein Prozess befindet sich nicht einfach nur „laufend“, sondern immer in einem definierten Zustand.
+
+Typische Zustände:
+
+New – Prozess wird erzeugt
+
+Ready – bereit zur Ausführung, wartet auf CPU
+
+Running – aktuell auf der CPU
+
+Blocked / Waiting – wartet auf Ereignis (z. B. I/O)
+
+Terminated – beendet
+
+👉 Das Betriebssystem verwaltet diese Zustände explizit.
+
+3️⃣ Warum Prozesse warten müssen
+
+Die CPU:
+
+kann immer nur einen Prozess gleichzeitig ausführen
+
+Andere Prozesse:
+
+warten entweder
+
+auf CPU-Zeit
+
+auf ein externes Ereignis (z. B. Festplatte, Netzwerk)
+
+➡️ Warten ist kein Fehler, sondern normaler Bestandteil von Multitasking.
+
+4️⃣ Kontextwechsel (Context Switch)
+
+Ein Kontextwechsel ist der technische Kern von Multitasking.
+
+Dabei speichert das Betriebssystem:
+
+Registerinhalt
+
+Program Counter
+
+Prozesszustand
+
+… und lädt anschließend den Kontext eines anderen Prozesses.
+
+⚠️ Wichtig:
+
+Kontextwechsel kostet Zeit
+
+OS muss sie möglichst effizient durchführen
+
+5️⃣ Scheduling – wer darf rechnen?
+
+Das Scheduling ist die Entscheidung des Betriebssystems:
+
+Welcher Prozess bekommt wann die CPU?
+
+Grundidee:
+
+Fairness
+
+Reaktionsfähigkeit
+
+Auslastung der CPU
+
+Das konkrete Verfahren (Round Robin, Prioritäten etc.) kommt später,
+aber hier wichtig:
+
+👉 Scheduling ist Aufgabe des Betriebssystems, nicht der CPU.
+
+6️⃣ Interrupts als Steuermechanismus
+
+Ein zentrales technisches Konzept:
+
+Hardware oder Timer lösen Interrupts aus
+
+CPU unterbricht aktuellen Prozess
+
+Betriebssystem übernimmt Kontrolle
+
+Beispiele:
+
+Zeitquantum abgelaufen
+
+I/O-Operation abgeschlossen
+
+➡️ Interrupts ermöglichen dem OS Kontrolle über die CPU.
+
+7️⃣ Zusammenspiel der Konzepte (sehr wichtig!)
+
+Die Kernaussage von Teil 2 ist nicht ein einzelner Begriff, sondern das Zusammenspiel:
+
+Prozesse haben Zustände
+
+OS verwaltet Zustände
+
+Interrupts erzwingen Kontrollpunkte
+
+Scheduler entscheidet über CPU-Vergabe
+
+Kontextwechsel setzen Entscheidung um
+
+➡️ Multitasking entsteht ausschließlich durch das Betriebssystem.
+
+8️⃣ Technisches Gesamtbild
+Prozesse
+  ↓ (Ready / Blocked)
+Scheduler
+  ↓
+CPU
+  ↑
+Interrupts / Timer
+
+
+Das Betriebssystem:
+
+behält jederzeit die Kontrolle
+
+erlaubt Programmen keine eigenmächtigen Entscheidungen

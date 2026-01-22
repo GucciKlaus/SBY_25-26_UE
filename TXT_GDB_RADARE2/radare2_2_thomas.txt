@@ -1,0 +1,100 @@
+------------------------------------------------------------------------------------Sichere Betriebsysteme----------------------------------------------------------------------------------
+
+
+
+Linux Commands:
+
+	jobs
+
+	who
+
+	kill -STOP --------
+
+	     -CONT --------
+
+	sleep -- &
+
+	chmod +x/-x -Dateiname- [gibt/nimmt execute Rechte]
+
+	ldd -Datei-
+
+	file -Datei-
+
+	readelf -a -Datei-
+
+	./-Datei- [startet Datei]
+
+	echo $? [gibt return wert]
+
+	radare2 -A -Datei- [Dissasembler]
+
+		-d -A [debugging mode]
+
+		iS= [in der radare2 Ansicht]
+
+		afl
+
+		px (ProzessID)
+
+		pi (ProzessID) 100 [Ausgabe wie px nur in Programmcode]
+
+		pdf
+
+			[(zB.: var_4h) Zeigt das die Variable nur waehrend diesem Prozess existiert (Anzahl der Bits welche sie im Stackframe entfernt ist)]
+
+	ps u [Listet PRozesse, welche dem (User) zugeteilt sind]
+
+		[Im Namen dieses Users laeuft das Programm], [ProzessID], [Accounting Info (CPU, MEM)], [VSZ: Virtuell zugeteilter Speicher], [RSS: Tatsaechlich zugerechneter 				Speicher], ...
+
+	cat/proc/(ProzessID)/ Llistet Informarionen ueber den Prozess]
+
+		cmdLine
+
+		maps
+
+			Loader ist Zustaendig dafuer, dass aus einer Executable ein Prozess entsteht
+
+		status
+
+		stat
+
+		fd
+
+		fdinfo
+
+	ps f [f ist ein Parameter | listet Prozesse && Strukturen]
+
+	tail
+
+
+-> Seite 7 && 9: Stack [SBY - Prozesse]
+
+	gcc
+
+	size -Datei-
+
+Globale && Static Variablen sind unabhaengig vom Zustand des Prozesses immer Initialisiert
+
+Lokale sind nur waehrend der Laufzeit im entsprechendem Bereich
+
+
+
+section .text
+global _start
+
+_start:
+	push 42
+	pop ebx
+
+	mov ebx, 42
+	mov eax,1
+	int0x80 [Auf Linux kann auch syscall genuetzt werden]
+
+	nasm -f elf -o -stack.o stack.asm
+
+	ld -m elf_i368 -o stack stack.o
+
+	hexdump -C stack.o
+
+(in vim "syntax: off" macht die Codefarbe auf Weiss)
+

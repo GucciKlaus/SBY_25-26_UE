@@ -1,0 +1,131 @@
+🎥 Prozesse – Teil 2
+
+(technisch präzise, inhaltlich fortsetzend)
+
+1️⃣ Einordnung von Teil 2
+
+Während Prozesse – Teil 1 geklärt hat,
+
+was ein Prozess ist
+
+welche Informationen zu ihm gehören
+
+behandelt Teil 2 die Frage:
+
+Wie bewegt sich ein Prozess durch das System?
+(Zustandswechsel, Lebenszyklus, Steuerung durch das OS)
+
+2️⃣ Prozesszustände (formalisiert)
+
+Ein Prozess befindet sich immer in genau einem definierten Zustand.
+Diese Zustände sind keine Theorie, sondern reale Verwaltungsinformation im OS.
+
+Typisch (wie im Video eingeführt):
+
+Ready
+
+Prozess ist lauffähig
+
+wartet ausschließlich auf CPU-Zeit
+
+Running
+
+Prozess wird aktuell von der CPU ausgeführt
+
+Blocked / Waiting
+
+Prozess wartet auf ein Ereignis
+
+z. B. I/O, Benutzeraktion
+
+Terminated
+
+Prozess ist beendet
+
+Ressourcen werden freigegeben
+
+👉 Zustände werden nicht vom Prozess, sondern vom Betriebssystem gesetzt.
+
+3️⃣ Zustandsübergänge (entscheidend!)
+
+Das Video macht klar:
+
+Prozesse wechseln ihren Zustand nicht selbstständig.
+
+Typische Übergänge:
+
+Ready → Running
+(Scheduler weist CPU zu)
+
+Running → Blocked
+(z. B. I/O-Anforderung)
+
+Blocked → Ready
+(Ereignis tritt ein)
+
+Running → Ready
+(CPU wird entzogen, z. B. Zeitquantum abgelaufen)
+
+➡️ Jeder Übergang wird vom OS ausgelöst.
+
+4️⃣ Rolle des Schedulers
+
+Der Scheduler ist die OS-Komponente, die entscheidet:
+
+Welcher Prozess darf als Nächstes in den Zustand Running wechseln?
+
+Wichtig:
+
+Scheduler führt nichts aus
+
+er entscheidet nur
+
+Die eigentliche Ausführung übernimmt weiterhin die CPU.
+
+5️⃣ Zusammenhang mit Multitasking
+
+Da:
+
+mehrere Prozesse existieren
+
+aber nur eine CPU (pro Kern)
+
+muss das Betriebssystem:
+
+Prozesse regelmäßig unterbrechen
+
+Zustände sichern
+
+andere Prozesse ausführen lassen
+
+➡️ Multitasking entsteht durch:
+
+Zustandsverwaltung
+
+Scheduling
+
+Kontextwechsel
+
+6️⃣ Kontextwechsel (inhaltlich klar abgegrenzt)
+
+Ein Kontextwechsel bedeutet:
+
+aktueller Prozess wird unterbrochen
+
+sein Zustand wird gespeichert
+
+ein anderer Prozess wird fortgesetzt
+
+Das Video betont:
+
+Kontextwechsel ist notwendig
+
+aber nicht kostenlos (Overhead)
+
+7️⃣ Zentrale Kernaussage von Teil 2
+
+Prozesse durchlaufen definierte Zustände, deren Übergänge vollständig vom Betriebssystem kontrolliert werden, um CPU-Zeit zwischen konkurrierenden Prozessen aufzuteilen.
+
+Oder kürzer:
+
+Ein Prozess läuft nicht „einfach“, sondern wird ständig vom OS gesteuert.
