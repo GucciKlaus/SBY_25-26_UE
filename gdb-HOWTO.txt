@@ -1,7 +1,0 @@
-gdb
-file "File"
-break "Zeilennummer"
-run -> Debug yes
-p "speicher" zum speicher anschauen
-x/100db "speicher" um speicher zu betrachten
-next -> einen schritt weiter
