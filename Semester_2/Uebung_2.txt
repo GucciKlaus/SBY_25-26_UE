@@ -1,0 +1,23 @@
+1. SUB ebx, 1234    -> Immediate + MODR/M
+2. AND ecx, [edx]   -> MOD/RM
+3. MOV eax, 0xB800  -> Immediate
+4. MOV ax, 0xB800   -> Immediate 16 bit prefix in einen teil von eax nicht auf 32 bit rechnen
+5. MOV eax, [2 * edi + esi] -> MOD/RM und SIB
+6. POP eax          -> specialcode kein mod/rm
+7. INT 3            -> Spezialcdoe
+8. NOP              -> specialcode
+9. CMP eax, 1234    -> Immediate
+10. RET             -> Spezialcdoe
+
+
+
+1. CC
+2. 51
+3. F1
+4. F7 E0
+5. 09 FE
+6. 01 0B
+7. 8B 3C 88
+8. 2B 91 34 12 00 00
+
+

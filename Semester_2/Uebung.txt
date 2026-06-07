@@ -1,0 +1,28 @@
+mov eax, 0xB800
+
+0xB800 = Immediate
+
+Seite 731:
+b8 Move r32, imm32
+
+b8 +rd -> hat keinen ModR/M
+
+0xb800
+
+32 bit Erweiterung
+
+0x0000b800
+
+bytes zerlegen:
+
+00 00 b8 00
+
+Little Endian
+
+00 b8 00 00
+
+
+CC = Spezialcode = INT3
+
+51 = PUSH ecx
+

@@ -1,0 +1,42 @@
+Prefix: Intepretation des Befehls (Nächste Instruktion als 16 Bit statt 32) [operand size override, 0x66]
+Opcode: Eigentliche Befehl
+MODR/M: (1 Byte)
+    Bit 7-6 = Mod (2 bit) -> 00 kein Offset, 01 kleiner Offset (1 byte), 10 großer offset (4 byte), 11 kein Speicher sondern Register
+    Bit 5-3 = Reg/Opcode (3 bit)  
+    Bit 2-0 = R/M (3 bit)
+
+Mod+R/M (5 Bit), wie ist der zweite Operand zu lesen? Als register direkt, als Speicheradresse, Speicheradresse mit Verschiebung
+Reg/Opcode (3 Bit), erste Register, oder Erweiterung des Opcodes. (Intel Tabelle /5)
+
+0 = eax   1 = ecx   2 = edx   3 = ebx
+4 = esp   5 = ebp   6 = esi   7 = edi
+
+SIB (Scale Index Base) Beispiel: [4 * ebx + ecx]
+    Bit 7-6 = Scale (Faktor: 1, 2, 4, 8)
+    Bit 5-3 = Index (Register-Nummer)
+    Bit 2-0 = Base  (Register-Nummer)
+
+Displacement: fixer Offset zur Adresse addieren
+Immediate: konstanter Wert als Operand, z.B. (MOV eax, 5)
+
+
+Beispiel:
+    MOV eax, ebx
+
+Opcode auf Seite 731 suchen, 89 /r -> Move r32 to R/m 32
+
+mod     reg (Quelle)     r/M (Ziel)
+11        011              000
+
+1101 1000
+D    8
+
+89 D8
+
+MR
+reg = Quelle
+r/m = Ziel
+
+RM
+reg = Ziel
+r/m = Quelle
